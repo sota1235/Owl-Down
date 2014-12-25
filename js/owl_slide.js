@@ -5,7 +5,7 @@ var page_body = $('.page-body').children();
 
 page_body.each(function() {
   var t_name   = $(this).prop("tagName");
-  var contents = $(this).text().replace(/[\n\r]/g, "");
+  var contents = $(this).get(0).outerHTML;
   if(t_name == "H1") {
     if(str.length == 0) {
       str.push([t_name, contents]);
@@ -17,7 +17,7 @@ page_body.each(function() {
     if(t_name == "UL") {
       $(this).children().each(function() {
         var t_name   = $(this).prop("tagName");
-        var contents = $(this).text().replace(/[\n\r]/g, "");
+        var contents = $(this).get(0).outerHTML;
         str.push([t_name, contents]);
       });
     } else {
