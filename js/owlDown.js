@@ -53,8 +53,15 @@
     $('.owldown').html(pages[--page_num]);
   };
 
+  init = function() {
+    attachDown();
+    fetchOwl();
+  }
+
   /* event listner */
   $(function() {
+    init();
+
     $(window).keydown(function(e) {
       if(e.keyCode == 39) {
         next();
