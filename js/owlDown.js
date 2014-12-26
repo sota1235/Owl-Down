@@ -52,4 +52,15 @@
     if(page_num == 0) return;
     $('.owldown').html(pages[--page_num]);
   };
+
+  /* event listner */
+  $(function() {
+    $(window).keydown(function(e) {
+      if(e.keyCode == 39) {
+        next();
+      } else if(e.keyCode == 37) {
+        prev();
+      }
+    });
+  });
 });
