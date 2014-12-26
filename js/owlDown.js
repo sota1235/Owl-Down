@@ -4,27 +4,27 @@
 
   /* pagesにスライド情報をぶっこむ */
   fetchOwl = function() {
-    var page = [];
+    var page = "";
     var page_body = $('.page-body').children();
 
     page_body.each(function() {
       var t_name   = $(this).prop("tagName");
       var contents = $(this).get(0).outerHTML;
       if(t_name == "H1") {
-        if(page.length == 0) {
-          page.push(contents);
+        if(page == "") {
+          page = contents;
         } else {
           pages.push(page);
-          page = [contents];
+          page = contents;
         }
       } else {
         if(t_name == "UL") {
           $(this).children().each(function() {
             var contents = $(this).get(0).outerHTML;
-            page.push(contents);
+            page += contents;
           });
         } else {
-          page.push(contents);
+          page += contents;
         }
       }
     });
