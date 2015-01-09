@@ -19,6 +19,7 @@
         }
       } else {
         if(t_name == "UL") {
+          // TODO: ネスト深すぎ
           $(this).children().each(function() {
             var contents = $(this).get(0).outerHTML;
             page += contents;
