@@ -31,10 +31,3 @@ console.log(pages);
 /* slide一覧を生成 */
 $('body').append('<div class="slider"></div>');
 var slides = $('.slider');
-
-/* pagesを追加 */
-for(var i=0;i<pages.length;i++) {
-  for(var j=0;j<pages[i].length;j++) {
-    slides.append(pages[i][j][1]);
-  }
-}
