@@ -79,14 +79,16 @@ var prev = function() {
   }
 }
 
-/* keyイベント設定 */
-$(window).keydown(function(e) {
-  var k = e.keyCode;
-  if(k == 39) {
-    // 右キー
-    next();
-  } else if (k == 37) {
-    // 左キー
-    prev();
-  }
+$(function() {
+  /* keyイベント設定 */
+  $(window).keydown(function(e) {
+    var k = e.keyCode;
+    if(k == 39) {
+      // 右キー
+      next();
+    } else if (k == 37) {
+      // 左キー
+      prev();
+    }
+  });
 });
