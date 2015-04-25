@@ -1,3 +1,16 @@
+/*
+ * Owl Down
+ *
+ * Author:
+ *  sota1235
+ *
+ * Description:
+ *  Slide Generator for Owl(https://github.com/fortkle/owl)
+ */
+
+/*
+ * Initialize
+ */
 var pages = []; // スライド情報を突っ込む
 var str   = [];
 
@@ -32,3 +45,48 @@ console.log(pages);
 /* slideスペースを生成 */
 $('body').append('<div class="slider"><div class="s_contents"></div></div>');
 var slide = $('.s_contents');
+
+/*
+ * Owl Down
+ */
+
+/* Variable */
+var slide_num    = 0;            // 現在のスライド番号
+var slide_length = pages.length; // スライドの長さ
+
+/* キーイベントに当てる関数 */
+var next = function() {
+  if(slide_num == slide_length) {
+    return;
+  } else {
+    slide_num++;
+  }
+  slide.remove(); // 要素削除
+  for(var i=0;i<pages[slide_num].length;i++) {
+    slides.append(pages[slide_num][i][1]);
+  }
+}
+
+var prev = function() {
+  if(slide_num == 0) {
+    return;
+  } else {
+    slide_num--;
+  }
+  slide.remove();
+  for(var i=0;i<pages[slide_num].length;i++) {
+    slides.append(pages[slide_num][i][1]);
+  }
+}
+
+/* keyイベント設定 */
+$(window).keydown(function(e) {
+  var k = e.keyCode;
+  if(k == 39) {
+    // 右キー
+    next();
+  } else if (k == 37) {
+    // 左キー
+    prev();
+  }
+});
