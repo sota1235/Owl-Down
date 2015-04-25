@@ -38,14 +38,3 @@ for(var i=0;i<pages.length;i++) {
     slides.append(pages[i][j][1]);
   }
 }
-
-/* slider setup */
-$(function() {
-  $('.slider').slider({
-    showControls: true,
-    autoplay: false,
-    showPosition: true;
-    hoverPause: true,
-    direction: 'left'
-  });
-});
