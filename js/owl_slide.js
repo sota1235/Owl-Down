@@ -3,6 +3,7 @@ var str   = [];
 
 var page_body = $('.page-body').children();
 
+/* 記事情報をparse */
 page_body.each(function() {
   var t_name   = $(this).prop("tagName");
   var contents = $(this).get(0).outerHTML;
@@ -28,6 +29,6 @@ page_body.each(function() {
 pages.push(str);
 console.log(pages);
 
-/* slide一覧を生成 */
-$('body').append('<div class="slider"></div>');
-var slides = $('.slider');
+/* slideスペースを生成 */
+$('body').append('<div class="slider"><div class="s_contents"></div></div>');
+var slide = $('.s_contents');

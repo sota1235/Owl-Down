@@ -8,6 +8,16 @@
   left: 0;
 }
 
+.s_contents {
+  position: absolute;
+  width: 60%;
+  top: 15%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
 #wrapper {
   visibility: hidden;
 }
