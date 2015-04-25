@@ -57,7 +57,7 @@ for(var i=0;i<pages[0].length;i++) {
 
 /* Variable */
 var slide_num    = 0;            // 現在のスライド番号
-var slide_length = pages.length; // スライドの長さ
+var slide_length = pages.length - 1; // スライドの長さ
 
 /* キーイベントに当てる関数 */
 var next = function() {
