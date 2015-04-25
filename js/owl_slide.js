@@ -63,7 +63,7 @@ var next = function() {
   }
   slide.remove(); // 要素削除
   for(var i=0;i<pages[slide_num].length;i++) {
-    slides.append(pages[slide_num][i][1]);
+    slide.append(pages[slide_num][i][1]);
   }
 }
 
@@ -75,7 +75,7 @@ var prev = function() {
   }
   slide.remove();
   for(var i=0;i<pages[slide_num].length;i++) {
-    slides.append(pages[slide_num][i][1]);
+    slide.append(pages[slide_num][i][1]);
   }
 }
 
