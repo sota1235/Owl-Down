@@ -61,7 +61,7 @@ var next = function() {
   } else {
     slide_num++;
   }
-  slide.remove(); // 要素削除
+  slide.empty(); // 要素削除
   for(var i=0;i<pages[slide_num].length;i++) {
     slide.append(pages[slide_num][i][1]);
   }
@@ -73,7 +73,7 @@ var prev = function() {
   } else {
     slide_num--;
   }
-  slide.remove();
+  slide.empty();
   for(var i=0;i<pages[slide_num].length;i++) {
     slide.append(pages[slide_num][i][1]);
   }
