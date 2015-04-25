@@ -46,6 +46,11 @@ console.log(pages);
 $('body').append('<div class="slider"><div class="s_contents"></div></div>');
 var slide = $('.s_contents');
 
+/* 1ページ目作成 */
+for(var i=0;i<pages[0].length;i++) {
+  slide.append(pages[0][i][1]);
+}
+
 /*
  * Owl Down
  */
@@ -83,6 +88,7 @@ $(function() {
   /* keyイベント設定 */
   $(window).keydown(function(e) {
     var k = e.keyCode;
+    console.log(k);
     if(k == 39) {
       // 右キー
       next();
