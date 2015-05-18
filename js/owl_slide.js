@@ -18,9 +18,10 @@ var page_body = $('.page-body').children();
 
 /* 記事情報をparse */
 // 記事タイトル、作者を取得
-var page_title  = $('#item-title').val();
-var page_author = $('.username').val();
-pages.push([page_title, page_author]);
+var page_title  = '<div class="s_title">' + $('#item-title').val(); + '</div>';
+var page_author = '<div class="s_user">'  + $('.username').val(); + '</div>';
+var title_slide = page_title + page_author;
+pages.push([[null, title_slide]]);
 // 記事内容を取得
 page_body.each(function() {
   var t_name   = $(this).prop("tagName");
