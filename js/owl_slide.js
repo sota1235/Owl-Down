@@ -17,6 +17,11 @@ var str   = [];
 var page_body = $('.page-body').children();
 
 /* 記事情報をparse */
+// 記事タイトル、作者を取得
+var page_title  = $('#item-title').val();
+var page_author = $('.username').val();
+pages.push([page_title, page_author]);
+// 記事内容を取得
 page_body.each(function() {
   var t_name   = $(this).prop("tagName");
   var contents = $(this).get(0).outerHTML;
@@ -40,7 +45,8 @@ page_body.each(function() {
   }
 });
 pages.push(str);
-console.log(pages);
+
+console.log(pages); // debug
 
 /* slideスペースを生成 */
 $('body').append('<div class="slider"><div class="s_contents"></div></div>');
