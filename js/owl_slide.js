@@ -17,6 +17,12 @@ var str   = [];
 var page_body = $('.page-body').children();
 
 /* 記事情報をparse */
+// 記事タイトル、作者を取得
+var page_title  = '<div class="s_title">' + $('.item-title').text(); + '</div>';
+var page_author = '<div class="s_user">Presented by '  + $('.username').text(); + '</div>';
+var title_slide = page_title + page_author;
+pages.push([[null, title_slide]]);
+// 記事内容を取得
 page_body.each(function() {
   var t_name   = $(this).prop("tagName");
   var contents = $(this).get(0).outerHTML;
@@ -40,7 +46,8 @@ page_body.each(function() {
   }
 });
 pages.push(str);
-console.log(pages);
+
+console.log(pages); // debug
 
 /* slideスペースを生成 */
 $('body').append('<div class="slider"><div class="s_contents"></div></div>');
@@ -57,7 +64,7 @@ for(var i=0;i<pages[0].length;i++) {
 
 /* Variable */
 var slide_num    = 0;            // 現在のスライド番号
-var slide_length = pages.length; // スライドの長さ
+var slide_length = pages.length - 1; // スライドの長さ
 
 /* キーイベントに当てる関数 */
 var next = function() {
