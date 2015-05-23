@@ -9,6 +9,8 @@
 }
 
 .s_contents {
+  font-size: 26px;
+  line-height: 60px;
   position: absolute;
   width: 60%;
   top: 15%;
@@ -16,6 +18,28 @@
   left: 0;
   bottom: 0;
   margin: auto;
+}
+
+.s_contents h1 {
+  font-size: 45px;
+  padding: 10px 25px;
+  margin-bottom: 5px;
+  background-color: white;
+  text-align: center;
+}
+
+.s_contents h2 {
+  font-size: 35px;
+  padding: 4px;
+}
+
+.s_contents h3 {
+  font-size: 25px;
+}
+
+.s_contents li {
+  font-size: 20px;
+  line-height: 45px;
 }
 
 #wrapper {
