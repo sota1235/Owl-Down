@@ -19,7 +19,7 @@ var page_body = $('.page-body').children();
 /* 記事情報をparse */
 // 記事タイトル、作者を取得
 var page_title  = '<div class="s_title">' + $('.item-title').text(); + '</div>';
-var page_author = '<div class="s_user">Presented by '  + $('.username').text(); + '</div>';
+var page_author = '<div class="s_user">Presented by '  + $('.item-manage .username').text(); + '</div>';
 var title_slide = page_title + page_author;
 pages.push([[null, title_slide]]);
 // 記事内容を取得
