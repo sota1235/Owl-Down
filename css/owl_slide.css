@@ -60,7 +60,7 @@
   width: 1%;
   height: 3px;
   background: blue;
-  translation: width 0.1s;
+  transition: width 0.7s;
 }
 
 #wrapper {
