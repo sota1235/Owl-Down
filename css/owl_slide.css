@@ -59,6 +59,9 @@
 
 .s_contents img {
   max-width: 100%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .s_bar {
