@@ -49,19 +49,6 @@ pages.push(str);
 
 console.log(pages); // debug
 
-/* slideスペースを生成 */
-$('body').append('<div class="slider"><div class="s_contents"></div></div>');
-var slide = $('.s_contents');
-
-/* Progressバー作成 */
-$('.slider').append('<div class="s_bar"></div>');
-var s_bar = $('.s_bar');
-
-/* 1ページ目作成 */
-for(var i=0;i<pages[0].length;i++) {
-  slide.append(pages[0][i][1]);
-}
-
 /*
  * Owl Down
  */
@@ -97,6 +84,18 @@ var prev = function() {
 
 // 初期処理
 var init = function() {
+  /* slideスペースを生成 */
+  $('body').append('<div class="slider"><div class="s_contents"></div></div>');
+  var slide = $('.s_contents');
+
+  /* Progressバー作成 */
+  $('.slider').append('<div class="s_bar"></div>');
+  var s_bar = $('.s_bar');
+
+  /* 1ページ目作成 */
+  for(var i=0;i<pages[0].length;i++) {
+    slide.append(pages[0][i][1]);
+  }
   s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
 }
 
