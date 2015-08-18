@@ -25,6 +25,10 @@ Owl用スライドジェネレータ
 javascript:window.BASE_URL="https://cdn.rawgit.com/sota1235/Owl-Down/master/";var s=document.createElement("script");s.setAttribute("src",window.BASE_URL+"js/owl_slide.js"),s.setAttribute("type","text/javascript");var c=document.createElement("link");c.setAttribute("rel","stylesheet"),c.setAttribute("type","text/css"),c.setAttribute("href",window.BASE_URL+"css/owl_slide.css"),document.getElementsByTagName("head")[0].appendChild(s),document.getElementsByTagName("head")[0].appendChild(c);
 ```
 
+→キー：進む
+
+←キー：戻る
+
 ## Author
 
 [@sota1235](https://github.com/sota1235)

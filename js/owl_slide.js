@@ -11,19 +11,21 @@
 /*
  * Initialize
  */
-var pages = []; // スライド情報を突っ込む
+var pages = []; // Infomation of slide
 var str   = [];
 
-var page_body = $('.page-body').children();
+var $page_body = $('.page-body').children();
 
-/* 記事情報をparse */
-// 記事タイトル、作者を取得
+// TODO: Owl組み込みを見越して$(function(){});に内包する
+/* Parse Owl Item */
+// Get item title and author
 var page_title  = '<div class="s_title">' + $('.item-title').text(); + '</div>';
 var page_author = '<div class="s_user">Presented by '  + $('.item-manage .username').text(); + '</div>';
 var title_slide = page_title + page_author;
 pages.push([[null, title_slide]]);
-// 記事内容を取得
-page_body.each(function() {
+// Get item contents
+// TODO: リファクタリング
+$page_body.each(function() {
   var t_name   = $(this).prop("tagName");
   var contents = $(this).get(0).outerHTML;
   if(t_name == "H1") {
@@ -47,74 +49,97 @@ page_body.each(function() {
 });
 pages.push(str);
 
-console.log(pages); // debug
-
-/* slideスペースを生成 */
-$('body').append('<div class="slider"><div class="s_contents"></div></div>');
-var slide = $('.s_contents');
-
-/* Progressバー作成 */
-$('.slider').append('<div class="s_bar"></div>');
-var s_bar = $('.s_bar');
-
-/* 1ページ目作成 */
-for(var i=0;i<pages[0].length;i++) {
-  slide.append(pages[0][i][1]);
-}
+console.log(pages); // for debug
 
 /*
  * Owl Down
  */
 
 /* Variable */
-var slide_num    = 0;            // 現在のスライド番号
-var slide_length = pages.length - 1; // スライドの長さ
+var slide_num    = 0;            // Slide number
+var slide_length = pages.length - 1; // Length of slides
 
-/* キーイベントに当てる関数 */
+// Create DOMs for Owl Down
+//var init = function() {
+  /* Create DOMs showing slides */
+  $('body').append('<div class="slider"><div class="s_contents"></div></div>');
+  var slide = $('.s_contents');
+
+  /* Create progress bar */
+  $('.slider').append('<div class="s_bar"></div>');
+  var s_bar = $('.s_bar');
+
+  /* Create first slide */
+  for(var i=0;i<pages[0].length;i++) {
+    slide.append(pages[0][i][1]);
+  }
+  s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
+//}
+
+
+/* Functions */
+// Show next slide
 var next = function() {
   if(slide_num == slide_length) {
     return;
-  } else {
-    slide_num++;
   }
-  slide.empty(); // 要素削除
+  slide_num++;
+  slide.empty(); // Clear slide
   for(var i=0;i<pages[slide_num].length;i++) {
     slide.append(pages[slide_num][i][1]);
   }
 }
 
+// Show previous slide
 var prev = function() {
   if(slide_num == 0) {
     return;
-  } else {
-    slide_num--;
   }
-  slide.empty();
+  slide_num--;
+  slide.empty(); // Clear slide
   for(var i=0;i<pages[slide_num].length;i++) {
     slide.append(pages[slide_num][i][1]);
   }
 }
 
-// 初期処理
-var init = function() {
-  s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
+// Start Owl Down
+var start = function() {
+}
+
+// Finish Owl Down
+var finish = function() {
 }
 
 $(function() {
-  init();
+  /* initial */
+  //init();
+  start();
 
-  /* keyイベント設定 */
+  /* Event listeners */
+  // Changing slides by direction keys
   $(window).keydown(function(e) {
     var k = e.keyCode;
     console.log(k);
     if(k == 39) {
-      // 右キー
+      // Show next slide when right key pressed
       next();
     } else if (k == 37) {
-      // 左キー
+      // Show previous slide when left key pressed
       prev();
     }
-    // Progressバーの長さ変更
+    // Change length of progress bar
     s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
+  });
+
+  // Start Owl Down
+  // TODO: スタートボタン作成
+  $('.slider-start').click(function() {
+    start();
+  });
+
+  // Finish Owl Down
+  // TODO: フィニッシュボタン作成
+  $('.slider-finish').click(function() {
+    finish();
   });
 });
