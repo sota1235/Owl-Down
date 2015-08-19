@@ -60,45 +60,49 @@ var slide_num    = 0;            // Slide number
 var slide_length = pages.length - 1; // Length of slides
 
 // Create DOMs for Owl Down
-//var init = function() {
+var init = function() {
   /* Create DOMs showing slides */
   $('body').append('<div class="slider"><div class="s_contents"></div></div>');
-  var slide = $('.s_contents');
-
   /* Create progress bar */
   $('.slider').append('<div class="s_bar"></div>');
-  var s_bar = $('.s_bar');
+  /* Create button finishing Owl Down */
+  $('body').append('<div class="slider_finish"><a href="#">Return to Owl</a></div>');
+
+  var $s_bar = $('.s_bar');
+  var $slide = $('.s_contents');
 
   /* Create first slide */
   for(var i=0;i<pages[0].length;i++) {
-    slide.append(pages[0][i][1]);
+    $slide.append(pages[0][i][1]);
   }
-  s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
-//}
+  $s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
+}
 
 
 /* Functions */
 // Show next slide
 var next = function() {
+  var $slide = $('.s_contents');
   if(slide_num == slide_length) {
     return;
   }
   slide_num++;
-  slide.empty(); // Clear slide
+  $slide.empty(); // Clear slide
   for(var i=0;i<pages[slide_num].length;i++) {
-    slide.append(pages[slide_num][i][1]);
+    $slide.append(pages[slide_num][i][1]);
   }
 }
 
 // Show previous slide
 var prev = function() {
+  var $slide = $('.s_contents');
   if(slide_num == 0) {
     return;
   }
   slide_num--;
-  slide.empty(); // Clear slide
+  $slide.empty(); // Clear slide
   for(var i=0;i<pages[slide_num].length;i++) {
-    slide.append(pages[slide_num][i][1]);
+    $slide.append(pages[slide_num][i][1]);
   }
 }
 
@@ -108,12 +112,17 @@ var start = function() {
 
 // Finish Owl Down
 var finish = function() {
+  $('.slider').hide();
+  $('.slider_finish').hide();
+  $('#wrapper').css('visibility', 'visible');
 }
 
 $(function() {
   /* initial */
-  //init();
+  init();
   start();
+
+  $s_bar = $('.s_bar');
 
   /* Event listeners */
   // Changing slides by direction keys
@@ -128,7 +137,7 @@ $(function() {
       prev();
     }
     // Change length of progress bar
-    s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
+    $s_bar.css('width', Math.floor(slide_num / slide_length * 100) + '%');
   });
 
   // Start Owl Down
@@ -138,8 +147,7 @@ $(function() {
   });
 
   // Finish Owl Down
-  // TODO: フィニッシュボタン作成
-  $('.slider-finish').click(function() {
+  $('.slider_finish').click(function() {
     finish();
   });
 });
