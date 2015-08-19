@@ -63,11 +63,13 @@ var slide_length = pages.length - 1; // Length of slides
 var init = function() {
   /* Create DOMs showing slides */
   $('body').append('<div class="slider"><div class="s_contents"></div></div>');
-  var $slide = $('.s_contents');
-
   /* Create progress bar */
   $('.slider').append('<div class="s_bar"></div>');
+  /* Create button finishing Owl Down */
+  $('body').append('<div class="slider_finish">Return to Owl</div>');
+
   var $s_bar = $('.s_bar');
+  var $slide = $('.s_contents');
 
   /* Create first slide */
   for(var i=0;i<pages[0].length;i++) {
