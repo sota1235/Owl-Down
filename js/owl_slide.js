@@ -66,7 +66,7 @@ var init = function() {
   /* Create progress bar */
   $('.slider').append('<div class="s_bar"></div>');
   /* Create button finishing Owl Down */
-  $('body').append('<div class="slider_finish">Return to Owl</div>');
+  $('body').append('<div class="slider_finish"><a href="#">Return to Owl</a></div>');
 
   var $s_bar = $('.s_bar');
   var $slide = $('.s_contents');
@@ -112,6 +112,9 @@ var start = function() {
 
 // Finish Owl Down
 var finish = function() {
+  $owlDown = $('.slider');
+  $owlDown.hide();
+  $('#wrapper').css('visibility', 'visible');
 }
 
 $(function() {
@@ -144,8 +147,7 @@ $(function() {
   });
 
   // Finish Owl Down
-  // TODO: フィニッシュボタン作成
-  $('.slider-finish').click(function() {
+  $('.slider_finish').click(function() {
     finish();
   });
 });
