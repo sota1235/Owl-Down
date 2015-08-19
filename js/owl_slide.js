@@ -112,8 +112,8 @@ var start = function() {
 
 // Finish Owl Down
 var finish = function() {
-  $owlDown = $('.slider');
-  $owlDown.hide();
+  $('.slider').hide();
+  $('.slider_finish').hide();
   $('#wrapper').css('visibility', 'visible');
 }
 
