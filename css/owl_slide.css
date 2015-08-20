@@ -13,15 +13,39 @@
   position: fixed;
   bottom: 10px;
   right: 10px;
-  border: 1px solid #888888;
   border-radius: 5px;
   padding: 4pt;
-  color: white;
+  color: black;
   background-color: gray;
   filter: alpha(opacity=80);
   -moz-opacity: 0.8;
   opacity: 0.8;
   z-index: 2;
+  text-decoration: none;
+}
+
+.slider_finish:hover {
+  background-color: #757575;
+}
+
+.slider_finish a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.slider_finish a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.slider_finish a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.slider_finish a:active {
+  color: white;
+  text-decoration: none;
 }
 
 .s_title {
