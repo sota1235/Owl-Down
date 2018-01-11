@@ -1,6 +1,10 @@
 Owl Down
 ====
 
+**Note: owl-down is already merged into owl https://github.com/owl/owl/pull/26**
+
+----
+
 Owl用スライドジェネレータ
 
 ### Description
